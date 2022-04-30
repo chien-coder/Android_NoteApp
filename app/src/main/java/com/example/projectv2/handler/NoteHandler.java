@@ -59,6 +59,7 @@ public class NoteHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
+
     public void addNote(String title, String datetime, String subtitle, String notetext) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -100,7 +101,7 @@ public class NoteHandler extends SQLiteOpenHelper {
     }
 
     public void updateNote(String id, String title, String subtitle,
-                             String datetime, String notetext) {
+                           String datetime, String notetext) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -116,11 +117,36 @@ public class NoteHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteNote(String id){
-        SQLiteDatabase sqLiteDatabase =this.getWritableDatabase();
+    public void deleteNote(String id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         sqLiteDatabase.delete(TABLE_NAME, "id=?", new String[]{id});
         sqLiteDatabase.close();
+    }
+
+    public ArrayList<Note> searchNote(String search) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor noteCursor = sqLiteDatabase.rawQuery(
+                "SELECT * FROM " + TABLE_NAME + " WHERE title LIKE '%" + search +"%'", null);
+
+        ArrayList<Note> NoteList = new ArrayList<>();
+
+        if (noteCursor.moveToFirst()) {
+            do {
+                NoteList.add(new Note(
+                        noteCursor.getInt(0),
+                        noteCursor.getString(1),
+                        noteCursor.getString(2),
+                        noteCursor.getString(3),
+                        noteCursor.getString(4),
+                        noteCursor.getString(5),
+                        noteCursor.getString(6)
+                ));
+            } while (noteCursor.moveToNext());
+        }
+        noteCursor.close();
+        return NoteList;
     }
 
     @Override
