@@ -7,13 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="SearchBackground">#0277BD</color>
-    <color name="search_icon">#C62828</color>
+    <color name="SearchBackground">#D1E2EC</color>
+    <color name="search_icon">#000000</color>
     <color name="textHint">#5F5A59</color>
     <color name="background_quickAction">#84C1E6</color>
     <color name="icons">#F9A825</color>
     <color name="Accent">#FF8F00</color>
-    <color name="Primary">#4527A0</color>
+    <color name="Primary">#FFFFFF</color>
     <color name="SubtitleText">#00695C</color>
     <color name="red">#C62828</color>
     <color name="yellow">#F9A825</color>

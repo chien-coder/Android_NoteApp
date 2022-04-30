@@ -3,22 +3,21 @@ package com.example.projectv2.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.projectv2.R;
 import com.example.projectv2.adapters.NoteRVAdapter;
 import com.example.projectv2.entities.Note;
+//import com.example.projectv2.entities.ViewType;
 import com.example.projectv2.handler.NoteHandler;
+//import com.example.projectv2.handler.ViewTypeHandler;
 
 import java.util.ArrayList;
 
@@ -29,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private NoteRVAdapter noteRVAdapter;
     private RecyclerView recyclerView;
     private EditText edt_inputSearch;
+//    private ViewType viewType;
+//    private ViewTypeHandler viewTypeHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,17 @@ public class MainActivity extends AppCompatActivity {
         noteRVAdapter = new NoteRVAdapter(noteArrayList, MainActivity.this);
         recyclerView =findViewById(R.id.rc_ListNote);
 
+//        viewTypeHandler = new ViewTypeHandler(MainActivity.this);
+//        viewType = viewTypeHandler.readViewType();
+//
+//        if(viewType.getType() == 1){
+//            Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+//        }
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this, recyclerView.VERTICAL, false);
+//        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(noteRVAdapter);
@@ -79,9 +90,8 @@ public class MainActivity extends AppCompatActivity {
         noteArrayList = new ArrayList<>();
         noteHandler = new NoteHandler(MainActivity.this);
 
-        if(search == ""){
-            noteArrayList = noteHandler.readNotes();
-        }else {
+        if(search.equals("")) noteArrayList = noteHandler.readNotes();
+        else {
             noteArrayList = noteHandler.searchNote(search);
         }
 
@@ -89,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView =findViewById(R.id.rc_ListNote);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this, recyclerView.VERTICAL, false);
+//        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(noteRVAdapter);

@@ -80,7 +80,6 @@
         android:orientation="horizontal"
         android:padding="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="parent">
-
     </LinearLayout>
 
     <ImageView

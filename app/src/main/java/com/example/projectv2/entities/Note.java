@@ -80,6 +80,7 @@ public class Note {
         this.imgPath = imgPath;
         this.color = color;
     }
+
     public Note(int id,String title, String dateTime, String subtitle, String noteText, String imgPath, String color) {
         this.id = id;
         this.title = title;
@@ -89,5 +90,4 @@ public class Note {
         this.imgPath = imgPath;
         this.color = color;
     }
-
 }

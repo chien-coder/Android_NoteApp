@@ -160,6 +160,21 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <include layout="@layout/layout_tools" />
+    <ImageView
+        android:id="@+id/img_AddNoteButtonMain"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/background_add_button"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_image"
+        app:layout_constraintBottom_toTopOf="@id/layout_QuickAction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_QuickAction"
+        app:tint="@color/Primary" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
