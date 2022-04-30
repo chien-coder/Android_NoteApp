@@ -70,7 +70,7 @@ public class CreateNote extends AppCompatActivity {
         String notetext = edt_noteText.getText().toString();
 
         try {
-            noteHandler.addNote(title,subtitle,datetime,notetext);
+            noteHandler.addNote(title,datetime,subtitle,notetext);
             Toast.makeText(this, "Thêm thành công...", Toast.LENGTH_SHORT).show();
         } catch (Exception e){
             Toast.makeText(this, "Thêm không thành công...", Toast.LENGTH_SHORT).show();

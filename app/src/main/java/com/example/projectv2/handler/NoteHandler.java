@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -67,6 +68,8 @@ public class NoteHandler extends SQLiteOpenHelper {
         values.put(DATETIME_COL, datetime);
         values.put(SUBTITLE_COL, subtitle);
         values.put(NOTETEXT_COL, notetext);
+        values.putNull(IMG_PATH_COL);
+        values.putNull(COLOR_COL);
 
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -99,21 +102,25 @@ public class NoteHandler extends SQLiteOpenHelper {
     public void updateNote(String id, String title, String subtitle,
                              String datetime, String notetext) {
 
-        // calling a method to get writable database.
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        // on below line we are passing all values
-        // along with its key and value pair.
         values.put(TITLE_COL, title);
         values.put(SUBTITLE_COL, subtitle);
         values.put(DATETIME_COL, datetime);
         values.put(NOTETEXT_COL, notetext);
+        values.putNull(IMG_PATH_COL);
+        values.putNull(COLOR_COL);
 
-        // on below line we are calling a update method to update our database and passing our values.
-        // and we are comparing it with name of our course which is stored in original name variable.
         db.update(TABLE_NAME, values, "id=?", new String[]{id});
         db.close();
+    }
+
+    public void deleteNote(String id){
+        SQLiteDatabase sqLiteDatabase =this.getWritableDatabase();
+
+        sqLiteDatabase.delete(TABLE_NAME, "id=?", new String[]{id});
+        sqLiteDatabase.close();
     }
 
     @Override

@@ -32,6 +32,20 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:background="@drawable/background_done_button"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/ic_delete"
+                app:tint="@color/icons"
+                app:layout_constraintBottom_toBottomOf="@id/img_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_back"/>
+
+            <ImageView
                 android:id="@+id/img_save"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"

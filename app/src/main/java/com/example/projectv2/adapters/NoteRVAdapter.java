@@ -38,6 +38,7 @@ public class NoteRVAdapter extends RecyclerView.Adapter<NoteRVAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull NoteRVAdapter.ViewHolder holder, int position) {
         Note note = noteArrayList.get(position);
+
         holder.tv_title.setText(note.getTitle());
         holder.tv_subtitle.setText(note.getSubtitle());
         holder.tv_dateTime.setText(note.getDateTime());
@@ -49,8 +50,8 @@ public class NoteRVAdapter extends RecyclerView.Adapter<NoteRVAdapter.ViewHolder
 
                 intent.putExtra("id", String.valueOf(note.getId()));
                 intent.putExtra("title", note.getTitle());
+                intent.putExtra("datetime" ,note.getDateTime());
                 intent.putExtra("subtitle", note.getSubtitle());
-                intent.putExtra("datatime" ,note.getDateTime());
                 intent.putExtra("notetext", note.getNoteText());
 
                 context.startActivity(intent);
