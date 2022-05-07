@@ -51,7 +51,7 @@
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:includeFontPadding="false"
-            android:inputType="text"
+            android:inputType="textNoSuggestions"
             android:textColor="@color/black"
             android:textColorHint="@color/textHint"
             android:textSize="@dimen/_13ssp"

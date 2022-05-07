@@ -46,15 +46,6 @@ public class MainActivity extends AppCompatActivity {
         noteRVAdapter = new NoteRVAdapter(noteArrayList, MainActivity.this);
         recyclerView =findViewById(R.id.rc_ListNote);
 
-//        viewTypeHandler = new ViewTypeHandler(MainActivity.this);
-//        viewType = viewTypeHandler.readViewType();
-//
-//        if(viewType.getType() == 1){
-//            Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
-//        }
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this, recyclerView.VERTICAL, false);
 //        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
